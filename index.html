@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Import our external library, Tone.js -->
+  <!-- Note that unlike the other code files we want it to load before anything else so we don't include defer -->
+  <script src="http://unpkg.com/tone"></script>
+
+  <!-- Import our CSS stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Import our JS file -->
+  <script src="keyboardController.js" defer></script>
+
+  <title>Synth UI Exercise</title>
+
+  <!-- favicon was sourced from favicon.io but the original graphics are copyright 2020 Twitter, Inc 
+       and other contributors -->
+  <!-- They are licensed under CC-BY 4.0 as linked below -->
+  <!-- https://creativecommons.org/licenses/by/4.0/ -->
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  
+</head>
+
+  <body>
+
+    <!-- Intro Modal popup -->
+    <!-- Websites are subject to an autoplay policy, so need user interaction before making sound -->
+    <!-- In this case we use the interaction of closing the modal to trigger loading the synth -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay -->    
+    <dialog id="introDialog">
+      <p>This synthesizer will make some noise, please check your system's volume setting.</p>
+      <button id="dialogCloseButton" autofocus>OK</button>
+    </dialog>
+
+  </body>
+
+</html>
