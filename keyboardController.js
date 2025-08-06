@@ -12,10 +12,10 @@ let polySynth = new Tone.PolySynth(Tone.Synth, {
     sustain: 0.5,
     release: 0.1,
     attackCurve: "exponential",
-  }
+  },
 });
 /* we don't connect it immediately to our audio driver, we wait for user interaction (via the modal) */
-function toneInit(){
+function toneInit() {
   polySynth.toDestination();
 }
 
@@ -34,15 +34,17 @@ document.getElementById("dialogCloseButton").addEventListener("click", () => {
 introModal.addEventListener("close", toneInit);
 
 /* find keys by their class and add to array */
-let allKeys = Array.from(document.getElementsByClassName("whiteKey")).concat(Array.from(document.getElementsByClassName("blackKey")));
+let allKeys = Array.from(document.getElementsByClassName("whiteKey")).concat(
+  Array.from(document.getElementsByClassName("blackKey"))
+);
 
 /* set default octace : we will update based on keys later on */
 let octave = 3;
 
 /* add an event listener to each key */
-allKeys.forEach(key => {
-    key.addEventListener("mousedown", e => {
-        let note = e.target.textContent;
-        polySynth.triggerAttackRelease(note + octave, '8n');
-    });
+allKeys.forEach((key) => {
+  key.addEventListener("mousedown", (e) => {
+    let note = e.target.dataset.note;
+    polySynth.triggerAttackRelease(note + octave, "8n");
+  });
 });
